@@ -1,4 +1,4 @@
-# scale_ui
+# Scalui
 
 A new Flutter project.
 
