@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scale_ui/components/home/home_card.dart';
 import 'package:scale_ui/components/home/search_bar.dart';
+import 'package:scale_ui/components/home/submenu.dart';
 import 'package:scale_ui/config.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,7 +24,10 @@ class _HomeScreenState extends State<HomeScreen> {
       transform: Matrix4.translationValues(xOffset, yOffset, 0)
         ..scale(scaleFactor),
       duration: Duration(milliseconds: 250),
-      color: Colors.white.withOpacity(0.9),
+      decoration: BoxDecoration(
+        color: colorBackground,
+        borderRadius: BorderRadius.circular( isDrawerOpen ? 40 : 0 )
+      ),
       child: Container(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -72,35 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               SearchBar(),
-              Container(
-                height: 120,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: categories.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                            padding: EdgeInsets.all(6),
-                            margin: EdgeInsets.only(left: 16),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                boxShadow: shadowList,
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Image.asset(
-                              categories[index]['iconPath'],
-                              height: 50,
-                              width: 50,
-                            ),
-                          ),
-                          Text(categories[index]['name'])
-                        ],
-                      ),
-                    );
-                  },
-                ),
-              ),
+              Submenu(),
               HomeCard(
                 img: "images/pet-cat2.png",
                 name: "Sova",
@@ -131,5 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+
 
 

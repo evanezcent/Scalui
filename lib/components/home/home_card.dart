@@ -54,6 +54,7 @@ class HomeCard extends StatelessWidget {
                       bottomRight: Radius.circular(20),
                       topRight: Radius.circular(20))),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
                     margin: EdgeInsets.fromLTRB(20, 20, 20, 14),
@@ -71,13 +72,16 @@ class HomeCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Container(child: Text(type)),
+                  Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: Text(type)),
                   SizedBox(height: 5),
                   Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
-                    age,
-                    style: TextStyle(color: Colors.grey[400], fontSize: 12),
-                  )),
+                        age,
+                        style: TextStyle(color: Colors.grey[500], fontSize: 12),
+                      )),
                   SizedBox(height: 8),
                   Container(
                     child: Row(
